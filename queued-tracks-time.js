@@ -35,7 +35,6 @@ momentScript.setAttribute( 'referrerpolicy', 'no-referrer' );
 document.head.appendChild( momentScript );
 
 setInterval( () => {
-	// Filtra solo i brani in "Prossimi in coda" (quelli aggiunti manualmente)
 	const queuedTracks = Spicetify.Queue?.nextTracks.filter( track => 
 		track.provider === "queue" || !track.provider?.startsWith("context")
 	) || [];
@@ -52,3 +51,4 @@ setInterval( () => {
         #queue-panel .KHNumev0cQFGYG2rSV1p:first-child .fYX4XCQz81A_L1WZ88uc`
     )?.forEach(e => e.style.setProperty( '--queue-remaining', `'${moment.utc( totalTime + Spicetify.Player.getDuration() - Spicetify.Player.getProgress() ).format( 'HH:mm:ss' )} Left'` ) );
 }, 1000 );
+
