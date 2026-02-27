@@ -1,13 +1,21 @@
 [
   {
     "name": "Queued Tracks Time",
-    "description": "Shows only the duration of manually queued tracks, excluding playlist autoplay",
-    "preview": "preview.png",
-    "main": "queued-tracks-time.js",
-    "readme": "README.md",
+    "description": "Shows the duration of manually queued tracks, excluding playlist autoplay.",
+    "preview": "queued-tracks-time/preview.png",
+    "main": "queued-tracks-time/queued-tracks-time.js",
     "authors": [
       { "name": "gaprj", "url": "https://github.com/gaprj" }
     ],
     "tags": ["queue", "time", "duration"]
+  },
+  {
+    "name": "Shuffle Queue",
+    "description": "Safe Fisher-Yates shuffle for playlist context using native reordering.",
+    "main": "shuffleQueue/shuffleQueue.js",
+    "authors": [
+      { "name": "gaprj", "url": "https://github.com/gaprj" }
+    ],
+    "tags": ["shuffle", "queue"]
   }
 ]
