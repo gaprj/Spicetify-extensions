@@ -20,5 +20,16 @@
       { "name": "gaprj", "url": "https://github.com/gaprj" }
     ],
     "tags": ["shuffle", "queue"]
+  },
+  {
+    "name": "Clone Playlist",
+    "description": "Clone any Spotify playlist via right-click, copying all tracks, description, and cover art.",
+    "preview": "clonePlaylists/preview.png",
+    "main": "clonePlaylists/clonePlaylist.js",
+    "readme": "clonePlaylists/README.md",
+    "authors": [
+      { "name": "gaprj", "url": "https://github.com/gaprj" }
+    ],
+    "tags": ["playlist", "clone", "copy"]
   }
 ]
