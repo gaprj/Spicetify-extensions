@@ -1,7 +1,7 @@
 // @ts-check
 // Name: shuffleQueue
 // Author: gaprj
-// Description: Shuffles context tracks using a native reorder call.
+// Description: Shuffles context tracks by toggling Spotify's native shuffle state.
 
 (function ShuffleQueuePlugin() {
     if (!Spicetify?.Player || !Spicetify?.Platform?.PlayerAPI) {
@@ -9,53 +9,21 @@
         return;
     }
 
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-    }
-
-    async function trueShuffleContext() {
+    async function triggerNativeShuffle() {
         const button = document.getElementById("spice-shuffle-floating-btn");
         if (button) button.style.pointerEvents = "none";
 
         try {
-            const queueAPI = Spicetify.Platform.PlayerAPI._queue;
-            const internalQueue = queueAPI?.getInternalQueue();
+            const isShuffleEnabled = Spicetify.Player.getShuffle();
 
-            if (!internalQueue) return;
-
-            const allTracks = internalQueue.nextTracks || [];
-
-            const contextTracks = allTracks.filter(t =>
-                t.provider !== "queue" &&
-                (t.contextTrack?.uri?.includes(":track:") || t.uri?.includes(":track:"))
-            );
-
-            if (contextTracks.length <= 1) {
-                Spicetify.showNotification("Not enough tracks to shuffle!");
-                return;
+            if (isShuffleEnabled) {
+                await Spicetify.Player.setShuffle(false);
+                await new Promise(resolve => setTimeout(resolve, 200));
             }
 
-            const anchorRaw = contextTracks[0];
-            const anchor = {
-                uri: anchorRaw.contextTrack?.uri || anchorRaw.uri,
-                uid: anchorRaw.contextTrack?.uid || anchorRaw.uid
-            };
+            await Spicetify.Player.setShuffle(true);
 
-            const toShuffleRaw = contextTracks.slice(1);
-
-            const shuffledTracks = shuffleArray([...toShuffleRaw]).map(t => ({
-                uri: t.contextTrack?.uri || t.uri,
-                uid: t.contextTrack?.uid || t.uid
-            }));
-
-            // @ts-ignore
-            await queueAPI.reorderQueue(shuffledTracks, { after: anchor });
-
-            Spicetify.showNotification(`Shuffled ${shuffledTracks.length + 1} tracks! 🔀`);
+            Spicetify.showNotification("Queue shuffled! 🔀");
         } catch (err) {
             Spicetify.showNotification("Shuffle error: " + err.message);
         } finally {
@@ -89,7 +57,7 @@
         button.innerHTML = `<svg role="img" height="16" width="16" viewBox="0 0 16 16" fill="currentColor">${shuffleIcon}</svg>`;
         button.onclick = (e) => {
             e.preventDefault();
-            trueShuffleContext();
+            triggerNativeShuffle();
         };
 
         document.body.appendChild(button);
