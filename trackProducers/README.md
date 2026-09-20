@@ -2,6 +2,8 @@
 
 Displays the producer(s) of the currently playing track directly in the Now Playing bar.
 
+<img width="271" height="63" alt="preview" src="https://github.com/user-attachments/assets/1781ad6c-323f-476d-8c52-d1031b56f259" />
+
 ## Features
 * **Native Integration:** Blends seamlessly into Spotify's UI, appearing right next to the track artists.
 * **Clickable Profiles:** Click on a producer's name to instantly open their Spotify artist page using the internal router (no heavy page reloads).
