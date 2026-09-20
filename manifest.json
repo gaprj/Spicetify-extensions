@@ -31,5 +31,16 @@
       { "name": "gaprj", "url": "https://github.com/gaprj" }
     ],
     "tags": ["playlist", "clone", "copy"]
+  },
+  {
+    "name": "Track Producers",
+    "description": "Displays clickable track producers in the Now Playing bar with a native modal for multiple credits.",
+    "preview": "trackProducers/preview.png",
+    "main": "trackProducers/track-producers.js",
+    "readme": "trackProducers/README.md",
+    "authors": [
+      { "name": "gaprj", "url": "https://github.com/gaprj" }
+    ],
+    "tags": ["credits", "producers", "now-playing", "ui"]
   }
 ]
