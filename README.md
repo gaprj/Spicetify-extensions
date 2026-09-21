@@ -103,5 +103,28 @@ Clone any Spotify playlist via right-click, copying all tracks, description, and
 
 ---
 
+## Remove Video Tag
+
+Completely removes the "Music Video" indicator, its button, and separator from the Now Playing bar, Queue, and Search results for a cleaner UI.
+
+### Features
+- Dynamically hides the music video badge and button globally across the Spotify client.
+- Cleans up leftover dot separators (`•`) and invisible wrapper margins to maintain perfect artist text alignment.
+- Automatically supports both English and Italian localizations.
+
+### Preview
+<img width="360" alt="preview" src="RemoveVideoTag/preview.png" />
+
+### Manual Installation
+1. Download `RemoveVideoTag.js` from the `RemoveVideoTag` folder.
+2. Copy to your Spicetify Extensions folder.
+3. Run:
+   ```bash
+   spicetify config extensions RemoveVideoTag/RemoveVideoTag.js
+   spicetify apply
+   ```
+
+---
+
 ## License
 MIT License
