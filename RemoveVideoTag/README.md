@@ -1,6 +1,6 @@
 # Remove Video Tag
 
-Completely removes the "Music Video" (or "Video musicale") indicator, its button, and separator from the Now Playing bar, Queue, and Search results for a cleaner UI.
+Completely removes the "Music Video" indicator, its button, and separator from the Now Playing bar, Queue, and Search results for a cleaner UI.
 
 ## Features
 - Dynamically hides the music video badge and button globally across the Spotify client.
