@@ -42,5 +42,16 @@
       { "name": "gaprj", "url": "https://github.com/gaprj" }
     ],
     "tags": ["credits", "producers", "now-playing", "ui"]
+  },
+  {
+    "name": "Remove Video Tag",
+    "description": "Completely removes the Music Video indicator, its icon, and separator globally.",
+    "preview": "RemoveVideoTag/preview.png",
+    "main": "RemoveVideoTag/RemoveVideoTag.js",
+    "readme": "RemoveVideoTag/README.md",
+    "authors": [
+      { "name": "gaprj", "url": "https://github.com/gaprj" }
+    ],
+    "tags": ["ui", "clean", "hide", "video"]
   }
 ]
